@@ -1,14 +1,26 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
+const subpath = pathname.match(/[^\/]+/g);
 ---
 
 <header>
   <nav>
     <h2><a href="/">{SITE_TITLE}</a></h2>
     <div class="internal-links">
-      <HeaderLink href="/">Journal</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
+      <HeaderLink
+        href="/journal"
+        isActive={pathname === "" ||
+          "/journal" === pathname ||
+          "/journal" === "/" + (subpath?.[0] || "")}>Journal</HeaderLink
+      >
+      <HeaderLink
+        href="/about"
+        isActive={"/about" === pathname ||
+          "/about" === "/" + (subpath?.[0] || "")}>About</HeaderLink
+      >
     </div>
     <div class="social-links">
       <!-- <a href="https://m.webtoo.ls/@astro" target="_blank">

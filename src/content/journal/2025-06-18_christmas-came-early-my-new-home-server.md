@@ -2,7 +2,7 @@
 title: "Christmas came early: my new home server"
 slug: christmas-came-early-my-new-home-server
 tags: homelab, nas
-published: 2024-12-24
+published: 2025-06-18
 ---
 
 I got the following items today:
